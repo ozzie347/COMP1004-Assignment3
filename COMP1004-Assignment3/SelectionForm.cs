@@ -16,5 +16,18 @@ namespace COMP1004_Assignment3
         {
             InitializeComponent();
         }
+
+        private void nextButton_Click(object sender, EventArgs e)
+        {
+            Program.userSelections[0] = titleTextBox.Text;
+            Program.userSelections[1] = categoryTextBox.Text;
+            Program.userSelections[2] = costTextBox.Text;
+
+            Hide();
+
+            OrderForm orderForm = new OrderForm();
+
+            orderForm.Show();
+        }
     }
 }

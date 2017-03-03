@@ -8,6 +8,8 @@ namespace COMP1004_Assignment3
 {
     static class Program
     {
+        public static string[] userSelections = new string[3];
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
