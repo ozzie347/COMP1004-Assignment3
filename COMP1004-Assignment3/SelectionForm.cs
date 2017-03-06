@@ -65,11 +65,12 @@ namespace COMP1004_Assignment3
             Program.selectedMovie.Title = titleTextBox.Text;
             Program.selectedMovie.Category = categoryTextBox.Text;
             Program.selectedMovie.Cost = Convert.ToDouble(costTextBox.Text.Substring(1));
+            Program.selectedMovie.Poster = posterPictureBox.Image;
 
             Hide();
 
             OrderForm orderForm = new OrderForm();
-            orderForm.previousForm = this;
+            
             orderForm.Show();
         }
     }
