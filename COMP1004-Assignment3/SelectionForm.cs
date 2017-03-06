@@ -33,20 +33,7 @@ namespace COMP1004_Assignment3
             _selectedMovie.Add(new SelectedMovie("Footloose", "New Release", 4.99, Properties.Resources.Footloose));
             _selectedMovie.Add(new SelectedMovie("Real Steel", "New Release", 4.99, Properties.Resources.RealSteel));
 
-            nextButton.Enabled = false; 
-        }        
-
-        private void nextButton_Click(object sender, EventArgs e)
-        {
-            Program.selectedMovie.Title = titleTextBox.Text;
-            Program.selectedMovie.Category = categoryTextBox.Text;
-            Program.selectedMovie.Cost = Convert.ToDouble(costTextBox.Text.Substring(1));
-
-            Hide();
-
-            OrderForm orderForm = new OrderForm();
-
-            orderForm.Show();
+            nextButton.Enabled = false;
         }
 
         private void currentMoviesListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -71,6 +58,19 @@ namespace COMP1004_Assignment3
                     posterPictureBox.Image = selectedMovie.Poster;
                 }
             }
+        }
+
+        private void nextButton_Click(object sender, EventArgs e)
+        {
+            Program.selectedMovie.Title = titleTextBox.Text;
+            Program.selectedMovie.Category = categoryTextBox.Text;
+            Program.selectedMovie.Cost = Convert.ToDouble(costTextBox.Text.Substring(1));
+
+            Hide();
+
+            OrderForm orderForm = new OrderForm();
+            orderForm.previousForm = this;
+            orderForm.Show();
         }
     }
 }
