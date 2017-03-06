@@ -238,6 +238,7 @@
             this.addDVDCheckBox.TabIndex = 4;
             this.addDVDCheckBox.Text = "Order the DVD (Adds $10.00 to your total)";
             this.addDVDCheckBox.UseVisualStyleBackColor = true;
+            this.addDVDCheckBox.CheckedChanged += new System.EventHandler(this.addDVDCheckBox_CheckedChanged);
             // 
             // dvdLabel
             // 
@@ -330,9 +331,10 @@
             // 
             // posterPictureBox
             // 
-            this.posterPictureBox.Location = new System.Drawing.Point(7, 151);
+            this.posterPictureBox.Location = new System.Drawing.Point(53, 150);
             this.posterPictureBox.Name = "posterPictureBox";
-            this.posterPictureBox.Size = new System.Drawing.Size(313, 252);
+            this.posterPictureBox.Size = new System.Drawing.Size(217, 253);
+            this.posterPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.posterPictureBox.TabIndex = 4;
             this.posterPictureBox.TabStop = false;
             // 
@@ -354,7 +356,8 @@
             this.Name = "OrderForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "OrderForm";
+            this.Text = "MovieBonanza";
+            this.Load += new System.EventHandler(this.OrderForm_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.movieSelectedGroupBox.ResumeLayout(false);

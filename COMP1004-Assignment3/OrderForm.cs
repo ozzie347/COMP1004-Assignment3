@@ -43,5 +43,39 @@ namespace COMP1004_Assignment3
 
             selectionForm.Show();
         }
+
+        private void OrderForm_Load(object sender, EventArgs e)
+        {
+            titleTextBox.Text = Program.selectedMovie.Title;
+            categoryTextBox.Text = Program.selectedMovie.Category;
+            posterPictureBox.Image = Program.selectedMovie.Poster;
+            costTextBox.Text = Program.selectedMovie.Cost.ToString();
+            dvdTextBox.Text = "$0";
+            subtotalTextBox.Text = (Program.selectedMovie.Cost + Convert.ToDouble(dvdTextBox.Text.Substring(1))).ToString("C2");
+            salesTaxTextBox.Text = ((Program.selectedMovie.Cost + Convert.ToDouble(dvdTextBox.Text.Substring(1))) * 0.13).ToString("C2");
+            grandTotalTextBox.Text = (Program.selectedMovie.Cost + Convert.ToDouble(dvdTextBox.Text.Substring(1)) + Convert.ToDouble(salesTaxTextBox.Text.Substring(1))).ToString("C2");
+        }
+
+        private void addDVDCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if(addDVDCheckBox.Checked == true)
+            {
+                dvdLabel.Visible = true;
+                dvdTextBox.Visible = true;
+                dvdTextBox.Text = "$10";
+                subtotalTextBox.Text = (Program.selectedMovie.Cost + Convert.ToDouble(dvdTextBox.Text.Substring(1))).ToString("C2");
+                salesTaxTextBox.Text = ((Program.selectedMovie.Cost + Convert.ToDouble(dvdTextBox.Text.Substring(1))) * 0.13).ToString("C2");
+                grandTotalTextBox.Text = (Program.selectedMovie.Cost + Convert.ToDouble(dvdTextBox.Text.Substring(1)) + Convert.ToDouble(salesTaxTextBox.Text.Substring(1))).ToString("C2");
+            }
+            else if(addDVDCheckBox.Checked == false)
+            {
+                dvdLabel.Visible = false;
+                dvdTextBox.Visible = false;
+                dvdTextBox.Text = "$0";
+                subtotalTextBox.Text = (Program.selectedMovie.Cost + Convert.ToDouble(dvdTextBox.Text.Substring(1))).ToString("C2");
+                salesTaxTextBox.Text = ((Program.selectedMovie.Cost + Convert.ToDouble(dvdTextBox.Text.Substring(1))) * 0.13).ToString("C2");
+                grandTotalTextBox.Text = (Program.selectedMovie.Cost + Convert.ToDouble(dvdTextBox.Text.Substring(1)) + Convert.ToDouble(salesTaxTextBox.Text.Substring(1))).ToString("C2");
+            }
+        }
     }
 }

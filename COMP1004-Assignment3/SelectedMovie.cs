@@ -7,6 +7,7 @@
         public string Category { get; set; }
         public double Cost { get; set; }
         public System.Drawing.Image Poster { get; set; }
+        public double GrandTotal { get; set; }
 
         //Default Constructor
         public SelectedMovie()
