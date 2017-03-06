@@ -12,6 +12,7 @@ namespace COMP1004_Assignment3
         {
             InitializeComponent();
 
+            //list items with preset data
             _selectedMovie.Add(new SelectedMovie("Cedar Rapids", "Comedy", 1.99, Properties.Resources.CedarRapids));
             _selectedMovie.Add(new SelectedMovie("Season of the Witch", "Sci-Fi", 2.99, Properties.Resources.SeasonOfTheWitch));
             _selectedMovie.Add(new SelectedMovie("The Green Hornet", "Action", 2.99, Properties.Resources.TheGreenHornetPoster));
@@ -33,11 +34,18 @@ namespace COMP1004_Assignment3
             _selectedMovie.Add(new SelectedMovie("Footloose", "New Release", 4.99, Properties.Resources.Footloose));
             _selectedMovie.Add(new SelectedMovie("Real Steel", "New Release", 4.99, Properties.Resources.RealSteel));
 
+            //disable the Next button
             nextButton.Enabled = false;
         }
 
+        /// <summary>
+        /// Update the form to show the user's selection
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void currentMoviesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //if no selection has been made yet, do not enable the Next button
             if (currentMoviesListBox.Text == "")
             {
                 nextButton.Enabled = false;
@@ -47,8 +55,10 @@ namespace COMP1004_Assignment3
                 nextButton.Enabled = true;
             }
 
+            //add the user's selection to the title textbox
             titleTextBox.Text = currentMoviesListBox.Text;
 
+            //search the list for a movie with the user's selected title and populate the category, cost, and poster fields
             foreach (SelectedMovie selectedMovie in _selectedMovie)
             {
                 if (selectedMovie.Title == titleTextBox.Text)
@@ -60,6 +70,12 @@ namespace COMP1004_Assignment3
             }
         }
 
+        /// <summary>
+        /// Proceed to next next form, hiding the current one
+        /// Save the user's choice into the SelectedMovie class
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void nextButton_Click(object sender, EventArgs e)
         {
             Program.selectedMovie.Title = titleTextBox.Text;
